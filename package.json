@@ -1,0 +1,31 @@
+{
+  "name": "react-native-redux-boilerplate",
+  "version": "0.0.2",
+  "description": "creates a boilerplate for a ReactNative application with redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "react-native-redux-boilerplate": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgarciacruzz/react-native-redux-boilerplate.git"
+  },
+  "keywords": [
+    "react-native",
+    "redux"
+  ],
+  "author": "Manuel Garcia <mgarciacruzz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mgarciacruzz/react-native-redux-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mgarciacruzz/react-native-redux-boilerplate#readme",
+  "dependencies": {
+    "download-git-repo": "^1.0.2",
+    "inquirer": "^5.2.0",
+    "shelljs": "^0.8.1"
+  }
+}
