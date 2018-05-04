@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const inquirer = require('inquirer');
+var inquirer = require('inquirer');
 var shell = require('shelljs');
 var git = require('download-git-repo')
 
@@ -25,6 +25,8 @@ const QUESTIONS = [
       else return 'Project name may only include letters, numbers, underscores and hashes.';
     }
   }
+]
+
 
 // Getting project Name
 inquirer.prompt(QUESTIONS)
