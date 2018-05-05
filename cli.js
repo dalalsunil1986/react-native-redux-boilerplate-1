@@ -113,10 +113,17 @@ function createDirectoryContents (templatePath, newProjectPath) {
     const stats = fs.statSync(origFilePath);
 
     if (stats.isFile()) {
-      const contents = fs.readFileSync(origFilePath, 'utf8');
+      var mode = 'utf8'
 
-      const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
-      fs.writeFileSync(writePath, contents, 'utf8');
+      // This is to avoid modifying the icon content
+      if(file == 'happy-icon.png') {
+        mode = 'binary'
+      }
+        const contents = fs.readFileSync(origFilePath, mode);
+
+        const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
+        fs.writeFileSync(writePath, contents, mode);
+
     } else if (stats.isDirectory()) {
       fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
 
