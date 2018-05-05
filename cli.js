@@ -7,7 +7,7 @@ require('download-git-repo');
 const fs = require('fs');
 
 const CURR_DIR = process.cwd();
-console.log(CURR_DIR);
+console.log(__dirname);
 
 const GIT_REPOSITORY = "mgarciacruzz/react-native-redux-boilerplate/"
 const DEPENDENCIES = [
