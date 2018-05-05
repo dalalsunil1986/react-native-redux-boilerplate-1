@@ -34,10 +34,22 @@ const QUESTIONS = [
 // Getting project Name
 inquirer.prompt(QUESTIONS)
 .then(answers => {
-  const projectName = answers['project-name'];
+  const projectName   = answers['project-name'];
 
+  const templatePath  = `${__dirname}/src`;
+  const filesPath   = `${projectName}/src`
+  /***************************************************************************
+  * Installing required packages
+  *****************************************************************************/
   // install(projectName);
-  copyFiles();
+
+
+  /***************************************************************************
+  * Copying files
+  *****************************************************************************/
+  fs.mkdirSync(`${CURR_DIR}/${filesPath}`);
+
+  createDirectoryContents(templatePath, filesPath);
 });
 
 /**
@@ -73,10 +85,27 @@ function install(projectName){
   })
 }
 
-function copyFiles(){
-  /***************************************************************************
-  * Already in the project directory
-  *****************************************************************************/
 
 
+function createDirectoryContents (templatePath, newProjectPath) {
+  const filesToCreate = fs.readdirSync(templatePath);
+
+  filesToCreate.forEach(file => {
+    const origFilePath = `${templatePath}/${file}`;
+
+    // get stats about the current file
+    const stats = fs.statSync(origFilePath);
+
+    if (stats.isFile()) {
+      const contents = fs.readFileSync(origFilePath, 'utf8');
+
+      const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
+      fs.writeFileSync(writePath, contents, 'utf8');
+    } else if (stats.isDirectory()) {
+      fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
+
+      // recursive call
+      createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
+    }
+  });
 }
