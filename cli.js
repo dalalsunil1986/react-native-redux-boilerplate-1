@@ -6,7 +6,7 @@ var git = require('download-git-repo')
 const fs = require('fs');
 
 const CURR_DIR = process.cwd();
-
+const GIT_REPOSITORY = "mgarciacruzz/react-native-redux-boilerplate"
 const DEPENDENCIES = [
   "react-native-router-flux",
   "react-redux",
@@ -34,8 +34,14 @@ inquirer.prompt(QUESTIONS)
   const projectName = answers['project-name'];
 
   install(projectName);
+  copyFiles();
 });
 
+/**
+ * This fucntion creates the project and install all the required packages.
+ * @param  {String} projectName folder where the project is created.
+ * @return {void}
+ */
 function install(projectName){
   // Checking if react native is Installed
   if (!shell.which('react-native')) {
@@ -62,4 +68,17 @@ function install(projectName){
   DEPENDENCIES.forEach( (dependency) => {
     shell.exec(`npm install -save ${dependency}`)
   })
+}
+
+function copyFiles(){
+  /***************************************************************************
+  * Already in the project directory
+  *****************************************************************************/
+
+  // Downloading git files
+  download(GIT_REPOSITORY, '.', function (err) {
+    console.log(err ? 'Error downloading git repository files!' :
+                'All git files downloaded successfully!');
+  })
+
 }
