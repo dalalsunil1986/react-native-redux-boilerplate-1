@@ -51,7 +51,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Manuel Garcia** - *Initial work* - [Mgarciacruzz](https://github.com/mgarciacruzz)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](ttps://github.com/mgarciacruzz/contributors) who participated in this project.
 
 ## License
 
