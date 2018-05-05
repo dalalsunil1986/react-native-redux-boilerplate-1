@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 var inquirer = require('inquirer');
 var shell = require('shelljs');
-require('download-git-repo');
-// var git = require('download');
 
 const fs = require('fs');
 
