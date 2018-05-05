@@ -1,10 +1,10 @@
 # react-native-redux-boilerplate
-This repository provides the starting file configuration to begin with your react-native and redux application.
+This package provides the starting file configuration to begin with your react-native and redux application.
 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instruction would get you an up and running react-native app with redux.
 
 ### Prerequisites
 The only Prerequisites for this project are:
