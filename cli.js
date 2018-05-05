@@ -7,6 +7,7 @@ require('download-git-repo');
 const fs = require('fs');
 
 const CURR_DIR = process.cwd();
+const MAIN_DIR = __dirname;
 console.log(__dirname);
 
 const GIT_REPOSITORY = "mgarciacruzz/react-native-redux-boilerplate/"
@@ -42,7 +43,7 @@ inquirer.prompt(QUESTIONS)
   /***************************************************************************
   * Installing required packages
   *****************************************************************************/
-  // install(projectName);
+  install(projectName);
 
 
   /***************************************************************************
@@ -50,7 +51,23 @@ inquirer.prompt(QUESTIONS)
   *****************************************************************************/
   fs.mkdirSync(`${CURR_DIR}/${filesPath}`);
 
-  createDirectoryContents(templatePath, filesPath, projectName);
+  createDirectoryContents(templatePath, filesPath);
+
+  /***************************************************************************
+  * Removing old App.js file
+  *****************************************************************************/
+  shell.exec(`rm App.js`);
+
+  /***************************************************************************
+  * Adding new App.js file
+  *****************************************************************************/
+  const originalFilePath = fs.readFileSync(`${__dirname}/App.js`, 'utf8');
+
+  const newFilePath = `${CURR_DIR}/${projectName}/App.js`;
+
+  fs.writeFileSync(newFilePath, originalFilePath, 'utf8');
+
+
 });
 
 /**
@@ -88,7 +105,7 @@ function install(projectName){
 
 
 
-function createDirectoryContents (templatePath, newProjectPath, projectRootPath) {
+function createDirectoryContents (templatePath, newProjectPath) {
   const filesToCreate = fs.readdirSync(templatePath);
 
   filesToCreate.forEach(file => {
@@ -109,19 +126,5 @@ function createDirectoryContents (templatePath, newProjectPath, projectRootPath)
       createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
     }
   });
-
-  /***************************************************************************
-  * Removing old App.js file
-  *****************************************************************************/
-  shell.exec(`rm App.js`);
-
-  /***************************************************************************
-  * Adding new App.js file
-  *****************************************************************************/
-
-  const contents = fs.readFileSync(`${__dirname}/App.js`, 'utf8');
-
-  const writePath = `${CURR_DIR}/${projectRootPath}/App.js`;
-  fs.writeFileSync(writePath, contents, 'utf8');
 
 }
