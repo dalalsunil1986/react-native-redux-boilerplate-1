@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "react-native-redux-boilerplate": "./cli.js"
+    "react-native-redux-boilerplate-install": "./cli.js"
   },
   "repository": {
     "type": "git",

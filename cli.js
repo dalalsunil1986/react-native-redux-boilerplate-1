@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 var inquirer = require('inquirer');
 var shell = require('shelljs');
-var git = require('download-git-repo')
+require('download-git-repo');
+// var git = require('download');
 
 const fs = require('fs');
 
 const CURR_DIR = process.cwd();
-const GIT_REPOSITORY = "mgarciacruzz/react-native-redux-boilerplate"
+console.log(CURR_DIR);
+
+const GIT_REPOSITORY = "mgarciacruzz/react-native-redux-boilerplate/"
 const DEPENDENCIES = [
   "react-native-router-flux",
   "react-redux",
@@ -33,7 +36,7 @@ inquirer.prompt(QUESTIONS)
 .then(answers => {
   const projectName = answers['project-name'];
 
-  install(projectName);
+  // install(projectName);
   copyFiles();
 });
 
@@ -75,10 +78,5 @@ function copyFiles(){
   * Already in the project directory
   *****************************************************************************/
 
-  // Downloading git files
-  download(GIT_REPOSITORY, '.', function (err) {
-    console.log(err ? 'Error downloading git repository files!' :
-                'All git files downloaded successfully!');
-  })
 
 }
