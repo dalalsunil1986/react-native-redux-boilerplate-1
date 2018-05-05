@@ -38,6 +38,7 @@ inquirer.prompt(QUESTIONS)
 
   const templatePath  = `${__dirname}/src`;
   const filesPath   = `${projectName}/src`
+
   /***************************************************************************
   * Installing required packages
   *****************************************************************************/
@@ -49,7 +50,7 @@ inquirer.prompt(QUESTIONS)
   *****************************************************************************/
   fs.mkdirSync(`${CURR_DIR}/${filesPath}`);
 
-  createDirectoryContents(templatePath, filesPath);
+  createDirectoryContents(templatePath, filesPath, projectName);
 });
 
 /**
@@ -87,7 +88,7 @@ function install(projectName){
 
 
 
-function createDirectoryContents (templatePath, newProjectPath) {
+function createDirectoryContents (templatePath, newProjectPath, projectRootPath) {
   const filesToCreate = fs.readdirSync(templatePath);
 
   filesToCreate.forEach(file => {
@@ -108,4 +109,19 @@ function createDirectoryContents (templatePath, newProjectPath) {
       createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
     }
   });
+
+  /***************************************************************************
+  * Removing old App.js file
+  *****************************************************************************/
+  shell.exec(`rm App.js`);
+
+  /***************************************************************************
+  * Adding new App.js file
+  *****************************************************************************/
+
+  const contents = fs.readFileSync(`${__dirname}/App.js`, 'utf8');
+
+  const writePath = `${CURR_DIR}/${projectRootPath}/App.js`;
+  fs.writeFileSync(writePath, contents, 'utf8');
+
 }
