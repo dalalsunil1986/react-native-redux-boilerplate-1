@@ -1,6 +1,6 @@
 {
   "name": "react-native-redux-boilerplate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "creates a boilerplate for a ReactNative application with redux",
   "main": "index.js",
   "scripts": {
