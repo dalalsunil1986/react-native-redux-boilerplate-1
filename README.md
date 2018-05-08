@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/react-native-redux-boilerplate.svg)](https://badge.fury.io/js/react-native-redux-boilerplate)
+
 # react-native-redux-boilerplate
 This package provides a command line utility that starts the file configuration to begin with your react-native and redux application.
 
@@ -41,6 +43,14 @@ react-native-redux-boilerplate-install
 
 After running the command line utility and the basic folder structure has been created you can run your app as
 a regular react native app.
+
+Step into your project folder:
+
+```
+cd [Project Name]
+```
+
+And then run your app:
 
 For iOS:
 
