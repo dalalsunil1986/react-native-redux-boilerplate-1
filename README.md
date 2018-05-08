@@ -6,12 +6,24 @@ This package provides a command line utility that starts the file configuration 
 
 ## Getting Started
 
-These instruction would get you an up and running react-native app with redux.
+These instructions would get you an up and running react-native app with redux in Mac OS for iOS.
 
-### Prerequisites
-The only Prerequisites for this project are:
+If you want to run react native in a different operating system or in Android please follow
+the instructions in the [React Native Website](https://facebook.github.io/react-native/docs/getting-started.html).
+
+NOTE: This package would still work for development and deployment platforms different from Mac and iOS but the
+necessary configurations need to be set up, as mentioned above.
+
+### Prerequisites (Mac and iOS)
+The  Prerequisites for this project are:
+
   * Homebrew
   * Node (npm)
+  * Xcode (not necessary for the package itself, but it is necessary to run react native)
+
+To install Xcode in mac:
+
+Xcode can be obtained from the app store.
 
 To install Homebrew in mac:
 
@@ -58,7 +70,7 @@ For iOS:
 react-native run-ios
 ```
 
-For Android (not properly tested):
+For Android (follow the [website](https://facebook.github.io/react-native/docs/getting-started.html) for proper configuration):
 
 ```
 react-native run-android
