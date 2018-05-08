@@ -2,6 +2,8 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  * @flow
+ *
+ * This is the react native sample code adapted to work with redux
  */
 
 import React, { Component } from 'react';
@@ -49,38 +51,41 @@ export default class MainForm extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex:              1,
+    justifyContent:   'center',
+    alignItems:       'center',
+    backgroundColor:  '#F5FCFF',
   },
   button:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#3EFF8E',
+    alignItems:       'center',
+    justifyContent:   'center',
+    backgroundColor:  '#3EFF8E',
 
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
+    shadowColor:      '#000',
+    shadowOffset:     { width: 0, height: 2 },
+    shadowOpacity:    0.8,
+    shadowRadius:     2,
+    elevation:        1,
   },
   welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    fontSize:         20,
+    textAlign:        'center',
+    margin:           10,
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    textAlign:        'center',
+    color:            '#333333',
+    marginBottom:     5,
   },
 });
 
+// Allows to specify the type of props that the Component would be expecting.
 MainForm.propTypes = {
   userName:       PropTypes.string,
   buttonPressed:  PropTypes.func,
 };
+
+// Define default values for certain props in case no value is passed.
 MainForm.defaultProps = {
   userName:       '',
 };

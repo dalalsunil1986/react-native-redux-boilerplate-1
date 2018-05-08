@@ -6,7 +6,6 @@ const fs = require('fs');
 
 const CURR_DIR = process.cwd();
 const MAIN_DIR = __dirname;
-console.log(__dirname);
 
 const GIT_REPOSITORY = "mgarciacruzz/react-native-redux-boilerplate/"
 const DEPENDENCIES = [
@@ -74,16 +73,16 @@ inquirer.prompt(QUESTIONS)
  * @return {void}
  */
 function install(projectName){
+  // React Native needs version 4.6.1
+  console.log("Installing npm version 4.6.1")
+  shell.exec('npm install -g npm@4.6.1')
+
   // Checking if react native is Installed
   if (!shell.which('react-native')) {
     console.warn('react-native NOT found.')
     console.log('Installing React Native')
     shell.exec('npm install -g react-native-cli')
   }
-
-  // React Native needs version 4.6.1
-  console.log("Installing npm version 4.6.1")
-  shell.exec('npm install -g npm@4.6.1')
 
   // Creating React Native project
   shell.exec(`React-native init ${projectName}`);

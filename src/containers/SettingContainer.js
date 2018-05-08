@@ -23,16 +23,24 @@ class SettingContainer extends Component{
   }
 
   handleButtonPressed(newUserName) {
+    // In this case we are changing the state of the application by calling the action
+    // change_user_name defined in the actions file in the actions folder.
     this.props.Actions.change_user_name(newUserName);
   }
 }
 
+// This function links your class props to the state of the application (Store)
+// in this case you now can access the Store user data using
+// this.props.user.[property]
 function mapStateToProps(state) {
   return {
     user: state.user,
   };
 }
 
+// This function links your class props to the Actions of the application
+// in this case you now can access the Actions user data using
+// this.props.user.[Action Name]
 function mapDispatchToProps(dispatch) {
   return {
     Actions: bindActionCreators(ActionCreators, dispatch),

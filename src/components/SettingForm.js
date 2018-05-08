@@ -29,10 +29,12 @@ export default class SettingForm extends Component<Props> {
   constructor(props){
     super(props)
 
+    // State of the component.
     this.state = {
       text: "",
     }
   }
+  
   render() {
     return (
       <View style={styles.container}>
@@ -64,49 +66,52 @@ export default class SettingForm extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex:             1,
+    justifyContent:   'center',
+    alignItems:       'center',
+    backgroundColor:  '#F5FCFF',
   },
   textInput: {
-    height: 20,
-    width: 200,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
+    height:           20,
+    width:            200,
+    borderColor:      'gray',
+    borderWidth:      1,
+    marginBottom:     10,
   },
   image: {
-    height:             40,
-    width:              40,
+    height:           40,
+    width:            40,
   },
   button:{
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#3EFF8E',
+    alignItems:       'center',
+    justifyContent:   'center',
+    backgroundColor:  '#3EFF8E',
 
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
+    shadowColor:      '#000',
+    shadowOffset:     { width: 0, height: 2 },
+    shadowOpacity:    0.8,
+    shadowRadius:     2,
+    elevation:        1,
   },
   welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    fontSize:         20,
+    textAlign:        'center',
+    margin:           10,
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    textAlign:        'center',
+    color:            '#333333',
+    marginBottom:     5,
   },
 });
 
+// Allows to specify the type of props that the Component would be expecting.
 SettingForm.propTypes = {
   userName:       PropTypes.string,
   buttonPressed:  PropTypes.func,
 };
+
+// Define default values for certain props in case no value is passed;\.
 SettingForm.defaultProps = {
   userName:       '',
 };

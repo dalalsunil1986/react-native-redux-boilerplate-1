@@ -1,5 +1,5 @@
 # react-native-redux-boilerplate
-This package provides the starting file configuration to begin with your react-native and redux application.
+This package provides a command line utility that starts the file configuration to begin with your react-native and redux application.
 
 
 ## Getting Started
@@ -37,6 +37,24 @@ and follow the prompt.
 ```
 react-native-redux-boilerplate-install
 ```
+### Running
+
+After running the command line utility and the basic folder structure has been created you can run your app as
+a regular react native app.
+
+For iOS:
+
+```
+react-native run-ios
+```
+
+For Android (not properly tested):
+
+```
+react-native run-android
+```
+
+Enjoy!!!
 
 ## Built With
 
