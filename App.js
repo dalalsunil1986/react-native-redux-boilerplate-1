@@ -26,6 +26,11 @@ import {
   Lightbox,
 } from 'react-native-router-flux';
 
+import { YellowBox } from 'react-native';
+
+// Temporary solution for the most recent update of react
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
+
 import configureStore from './src/store/store'
 import { Provider } from 'react-redux';
 const store = configureStore({});
